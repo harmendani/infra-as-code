@@ -123,7 +123,7 @@ resource "azurerm_linux_virtual_machine" "example" {
 
   provisioner "file" {
     source      = "script.sh"
-    destination = "~/tmp/script.sh"
+    destination = "/tmp/script.sh"
     connection {
       type     = "ssh"
       host     = data.azurerm_public_ip.sample_public_ip.ip_address
@@ -137,7 +137,7 @@ resource "azurerm_linux_virtual_machine" "example" {
 resource "null_resource" "install-mysql" {
   provisioner "remote-exec" {
     inline = [
-      "chmod +x /tmp/script.sh",
+      "sudo chmod +x /tmp/script.sh",
       "sudo bash ./tmp/script.sh"
     ]
     connection {
