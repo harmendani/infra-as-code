@@ -137,8 +137,8 @@ resource "azurerm_linux_virtual_machine" "example" {
 resource "null_resource" "install-mysql" {
   provisioner "remote-exec" {
     inline = [
-      "sudo chmod +x /tmp/script.sh",
-      "sudo sh ./tmp/script.sh"
+      "chmod +x /tmp/script.sh",
+      "sudo bash ./tmp/script.sh"
     ]
     connection {
       type     = "ssh"

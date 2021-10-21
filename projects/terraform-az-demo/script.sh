@@ -9,7 +9,7 @@ echo ">>> Installing MySQL Server"
 	sudo apt-get update
 
 	# Change package
-	mysql_package=mysql-server
+	mysql_package=mysql-server-5.6.0
 
 
 # Install MySQL without password prompt
