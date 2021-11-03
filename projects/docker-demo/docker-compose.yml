@@ -1,0 +1,15 @@
+version: '1'
+services:
+    mysql_database:
+      image: mysql:latest
+      environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=demodb
+      ports:
+      - "3307:3306"
+    web_server:
+      image: nginx:latest
+      ports:
+      - "80:80"
