@@ -1,7 +1,15 @@
-version: '1'
+version: '3'
+
+networks:
+  netdemo:
+    driver: bridge
+    
 services:
     mysql_database:
       image: mysql:latest
+      restart: always
+      networks:
+      - netdemo
       environment:
       - MYSQL_ROOT_PASSWORD=password
       - MYSQL_USER=user
@@ -9,7 +17,11 @@ services:
       - MYSQL_DATABASE=demodb
       ports:
       - "3307:3306"
+
     web_server:
       image: nginx:latest
+      restart: always
+      networks:
+      - netdemo
       ports:
       - "80:80"
